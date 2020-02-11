@@ -43,6 +43,14 @@ You can create language files with any name as you like. After completing your c
 Language file will also contains an item named `Version`, it helps MelonAuth update your Language file automatically. Please **DO NOT** change the value of this item by yourself.
 Language file upgrade will add new items to language files. These new items will be added in English by default.
 
+### Formatting Codes Replacement
+All the items in language file will be applyed formatting codes replacement in order to help you configure text style easier.
+
++ All the `&` will be replaced with `§`.  
++ All the `&&` will be replaced with `&`.  
+
+For example, `&9Please send this package to Mr. && Mrs. Jack.` will be treated as `§9Please send this package to Mr. & Mrs. Jack.`.
+
 ## Commands
 
 MelonAuth has two sample commands:
