@@ -1,6 +1,6 @@
 # MelonAuth
 
-![banner_zh](https://auth.langua.moe/image/banner_zh.png)
+![banner_zh](https://raw.githubusercontent.com/LanguaLab/MelonAuth/master/image/banner_zh.png)
 
 MelonAuth 是一个可以帮助您 Minecraft 账户合法性的 Spigot 插件。它可以帮助您的服务器远离使用非法账户的玩家。
 

@@ -1,6 +1,6 @@
 # MelonAuth
 
-![banner](https://auth.langua.moe/image/banner.png)
+![banner](https://raw.githubusercontent.com/LanguaLab/MelonAuth/master/image/banner.png)
 
 MelonAuth is a spigot plugin which helps you to verify the legality of a Minecraft account. It can help you to prevent players who is using illegal accounts from your server.
 
