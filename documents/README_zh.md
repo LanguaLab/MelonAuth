@@ -27,7 +27,7 @@ MelonAuth 是一个可以帮助您 Minecraft 账户合法性的 Spigot 插件。
 MelonAuth **不会**向您请求任何隐私信息。所有可能出现的隐私信息将在您与Mojang之间直接传输。这些信息将不会被任何第三方收集(包括您将要加入的服务器)。
 
 ### 别弄脏我的衣服了！
-请不要担心你的衣服。验证码打印的位置将在游戏中不可见。您原来的皮肤与打印过验证码的皮肤在游戏中看起来的效果将是一样的。所以，您可以随意地将验证码保持在身上(事实上你的身体看起来和原来没有什么不同)，**完成验证后，您将不需要进行进一步操作** *（例如换回原来的皮肤）*。
+请不要担心您的衣服。验证码打印的位置将在游戏中不可见。您原来的皮肤与打印过验证码的皮肤在游戏中看起来的效果将是一样的。所以，您可以随意地将验证码保持在身上(事实上您的身体看起来和原来没有什么不同)，**完成验证后，您将不需要进行进一步操作** *（例如换回原来的皮肤）*。
 
 
 ## 现在获取 MelonAuth
@@ -42,7 +42,7 @@ MelonAuth **不会**向您请求任何隐私信息。所有可能出现的隐私
 
 ### 构建
 
-想要构建 MelonAuth，你需要先安装 [maven](https://maven.apache.org)。
+想要构建 MelonAuth，您需要先安装 [maven](https://maven.apache.org)。
 
 1. 复制git库到本地。
 ```
@@ -52,7 +52,7 @@ $ git clone git@github.com:LanguaLab/MelonAuth.git
 ```
 $ git clone https://github.com/LanguaLab/MelonAuth.git
 ```
-你也可以不使用git下载此仓库。（[下载压缩包](https://github.com/LanguaLab/MelonAuth/archive/master.zip)）
+您也可以不使用git下载此仓库。（[下载压缩包](https://github.com/LanguaLab/MelonAuth/archive/master.zip)）
 
 2. 使用 maven 构建插件。
 ```
