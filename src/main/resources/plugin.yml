@@ -1,0 +1,13 @@
+name: MelonAuth
+version: ${project.version}
+main: moe.langua.lab.melonauth.Init
+api-version: "1.13"
+author: langua
+website: https://github.com/LanguaLab/MelonAuth
+commands:
+  auth:
+    usage: "/auth"
+    discription: "Submit your verify request."
+  reload:
+    usage: "/reload"
+    discription: "reload the config file."

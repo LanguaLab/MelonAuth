@@ -1,0 +1,33 @@
+version: 1
+prefix: "&8[&3MelonAuth&8] &7"
+player_only: "Sorry, but you cannot use this command as console."
+obtaining_information: "We are obtaining your account information now... "
+no_need_to_auth: "You have no pending verification request now."
+start_verification: "MelonAuth is verifying your account... Please wait for a while."
+success: "Congratulations, Your account has been verified successfully."
+fail: "Wrong verification code detected. Please check your skin uploaded and try again in a minute."
+cool_down: "You need to wait {0} seconds before submitting your verification request. Make sure you have read the documentation before submitting."
+permission_denied: "&cSorry, but you don't have permission to use this command."
+reloaded: "plugin reloaded successfully."
+checking_update: "Checking update..."
+update_notice: "&cNew version &a{0}&c is available now! Update to the latest version to experience new features! Click the link to download now! &9&n{1}"
+
+unexpected_error: "&cUnexpected error occurred. Please contact the server administrator with the timestamp [{0}]. Please wait a moment and we will try again."
+connection_error: "&cCannot obtain the required resources now. Please wait for a moment and we will try again."
+
+join: "
+&6Hello! To enjoy this server, you need to verify the ownership of your Minecraft account. Please read the manual to get more details. Use &b/auth &6as soon as you complete your preparations."
+
+document:
+  url: "https://github.com/LanguaLab/MelonAuth/README/manual.md"
+  tellraw: "[{\"text\":\"{0}\"},{\"text\":\"{1}\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"{2}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":[\"\",{\"text\":\"{3}\",\"color\":\"dark_purple\"}]}}]"
+  notice: "&eRead the verification manual: "
+  click_word: "&b&lCLICK ME!"
+  hover_notice: "§5§oClick to read the verification manual."
+
+skin:
+  url: "https://auth.langua.moe/?skin={0}"
+  tellraw: "[{\"text\":\"{0}\"},{\"text\":\"{1}\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"{2}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":[\"\",{\"text\":\"{3}\",\"color\":\"dark_purple\"}]}}]"
+  notice: "&eDownload your verification skin: "
+  click_word: "&b&lCLICK ME!"
+  hover_notice: "§5§oClick to download your skin."
