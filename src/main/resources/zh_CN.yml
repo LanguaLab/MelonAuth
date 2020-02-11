@@ -19,15 +19,15 @@ join: "
 &6您好！ 您需要验证你的 Minecraft 账户，方可在此服务器游玩。 请阅读验证手册以了解关于账户验证的说明。 在你准备好验证时，可以使用 &b/auth&6 来提交验证请求。"
 
 document:
-  url: "https://github.com/LanguaLab/MelonAuth/README/manual.md"
+  url: "https://github.com/LanguaLab/MelonAuth/blob/master/documents/manual_zh.md"
   tellraw: "[{\"text\":\"{0}\"},{\"text\":\"{1}\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"{2}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":[\"\",{\"text\":\"{3}\",\"color\":\"dark_purple\"}]}}]"
   notice: "&e阅读验证指南: "
-  click_word: "&b&l请点击我"
+  click_word: "&b&l请点击我。"
   hover_notice: "§5§o点击以阅读验证指南"
 
 skin:
-  url: "https://auth.langua.moe/?skin={0}"
+  url: "https://auth.langua.moe/?file={0}&&skin={1}"
   tellraw: "[{\"text\":\"{0}\"},{\"text\":\"{1}\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"{2}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":[\"\",{\"text\":\"{3}\",\"color\":\"dark_purple\"}]}}]"
   notice: "&e下载您的验证皮肤: "
-  click_word: "&b&l请点击我"
+  click_word: "&b&l请点击我。"
   hover_notice: "§5§o点击以下载您的皮肤"

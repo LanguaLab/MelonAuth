@@ -80,7 +80,7 @@ public class AuthTrigger implements Listener {
                 String skinPaintedBase64 = Base64.getEncoder().encodeToString(verifier.getPaintedSkin());
                 String skinURL = null;
                 try {
-                    skinURL = instance.applyPlaceholder(languageMap.get("skin.url"), URLEncoder.encode(skinPaintedBase64, "UTF-8"));
+                    skinURL = instance.applyPlaceholder(languageMap.get("skin.url"),event.getPlayer().getName()+"-verification-"+System.currentTimeMillis(), URLEncoder.encode(skinPaintedBase64, "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }

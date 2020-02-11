@@ -19,14 +19,14 @@ join: "
 &6Hello! To enjoy this server, you need to verify the ownership of your Minecraft account. Please read the manual to get more details. Use &b/auth &6as soon as you complete your preparations."
 
 document:
-  url: "https://github.com/LanguaLab/MelonAuth/README/manual.md"
+  url: "https://github.com/LanguaLab/MelonAuth/blob/master/documents/manual.md"
   tellraw: "[{\"text\":\"{0}\"},{\"text\":\"{1}\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"{2}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":[\"\",{\"text\":\"{3}\",\"color\":\"dark_purple\"}]}}]"
   notice: "&eRead the verification manual: "
   click_word: "&b&lCLICK ME!"
   hover_notice: "§5§oClick to read the verification manual."
 
 skin:
-  url: "https://auth.langua.moe/?skin={0}"
+  url: "https://auth.langua.moe/?file={0}&&skin={1}"
   tellraw: "[{\"text\":\"{0}\"},{\"text\":\"{1}\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"{2}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":[\"\",{\"text\":\"{3}\",\"color\":\"dark_purple\"}]}}]"
   notice: "&eDownload your verification skin: "
   click_word: "&b&lCLICK ME!"
