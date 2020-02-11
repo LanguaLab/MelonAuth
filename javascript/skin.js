@@ -1,17 +1,15 @@
-
-window.onload = function(){
-var url = new URL(window.location.href);
-var skin = url.searchParams.get('skin');
-if(skin==null) {
-    return;
-}
-var skinFile = this.document.createElement("a");
-var link = "data:image/png;base64,"+ skin;
-skinFile.href = link;
-this.console.log(link);
-
-skinFile.download = "skin.png";
-skinFile.click();
-}
+window.onload = function () {
+    const url = new URL(window.location.href);
+    const file = url.searchParams.get('file');
+    const skin = url.searchParams.get('skin');
+    if (skin == null) {
+        return;
+    }
+    const skinFile = this.document.createElement("a");
+    const link = "data:image/png;base64," + skin;
+    skinFile.href = link;
+    skinFile.download = file+".png";
+    skinFile.click();
+};
 
             
