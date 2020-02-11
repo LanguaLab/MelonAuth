@@ -6,7 +6,7 @@
 
     <groupId>moe.langua.lab</groupId>
     <artifactId>melonauth</artifactId>
-    <version>1-pre1</version>
+    <version>1-pre2</version>
 
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
