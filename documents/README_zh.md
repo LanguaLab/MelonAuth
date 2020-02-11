@@ -14,7 +14,7 @@ MelonAuth 是一个可以帮助您 Minecraft 账户合法性的 Spigot 插件。
 ## 如何进行验证?
 当新玩家加入服务器时，MelonAuth 将会生成一个 192 bit 长的随机验证码，并将其打印在玩家皮肤文件的左上角。
 玩家需要做的是下载此皮肤文件，登录 minecraft.net（或Minecraft启动器）上传，并将其作为新皮肤。  
-当玩家上传新皮肤时，minecraft.net 将会选择是否让此玩家回答密保问题(取决于此玩家的账户活动情况)。通常情况下，使用非法账户的玩家在这一步会遇到困难，因为此玩家将不知道账户原主人设定的密保问题答案。
+当玩家上传新皮肤时，minecraft.net 将会选择是否让此玩家回答密保问题(取决于此玩家的账户活动情况)。通常情况下，使用非法账户的玩家在这一步会遇到困难，因为此玩家将不知道账户原主人设定的密保问题答案。  
 简单来讲，**MelonAuth 将使用 Mojang 账户系统的原生账户验证来验证账户的合法性。**  
 
 ## Q & A (关于玩家)
@@ -62,6 +62,7 @@ $ maven clean install
 构建好的插件将被放在 `$PATH_TO_REPOSITORY/target/melonauth-{$version}.jar`。
 
 ## 问题追踪
-如果您在插件使用中遇到了任何困难，或对插件有任何建议，欢迎您[提交新issue](https://github.com/LanguaLab/MelonAuth/issues)。中文与英语均可用。
+感谢您使用 MelonAuth 。如果您在使用过程中，发现它并不那么完美，希望您能与我们取得联系，将您的困惑告诉我们。  
+我们随时欢迎您[提交新issue](https://github.com/LanguaLab/MelonAuth/issues)。中文与英语均可用。
 
 

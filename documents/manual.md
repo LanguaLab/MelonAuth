@@ -7,6 +7,7 @@ This manual will helps you to finish the account verification. Prompts messages 
 + You will see the hyperlink text, which suggests you read this manual.
 + (You may receive a notice which means `Server cannot obtain the required resources now`, which caused by the usage limit of Mojang API. Don't worry about it, the server will wait for 20 seconds and try again automatically. You don't need to log out at this time. You may receive this message multiple times until the server successfully obtains the information).
 + After server obtain the necessary information(If the `cannot obtain the resources` doesn't appear, it usually only takes a few seconds), you will be sent a message contains a hyperlink to download your verification skin. Click the hyperlink text to download it. (You should use a modern browser to open the link, use Chrome, Firefox, Edge or Safari instead of Internet Explorer). Don't worry about the length of the super long link, it just as long as it should be.
++ The name of skin file is `YourName-verification-a_string_of_numbers.png`.
 
 ## 2. What should I do after I downloaded the skin?
 

@@ -64,6 +64,7 @@ $ maven clean install
 The built plugin will be placed in `$PATH_TO_REPOSITORY/target/melonauth-{$version}.jar`.
 
 ## Issue Tracker
-If you fall into any problems in use, or you have any suggestions, feel free to [open a new issue](https://github.com/LanguaLab/MelonAuth/issues). English and Chinese are both available.
+We hope you can get in touch with us and let us know your confusion If you fall into any problems in use.  
+Feel free to [open a new issue](https://github.com/LanguaLab/MelonAuth/issues). English and Chinese are both available.
 
 
