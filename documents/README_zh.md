@@ -1,6 +1,6 @@
 # MelonAuth
 
-#### 使用更安全的方式验证Minecraft账户所有权.
+![banner_zh](https://auth.langua.moe/image/banner_zh.png)
 
 MelonAuth 是一个可以帮助您 Minecraft 账户合法性的 Spigot 插件。它可以帮助您的服务器远离使用非法账户的玩家。
 
@@ -21,22 +21,22 @@ MelonAuth 是一个可以帮助您 Minecraft 账户合法性的 Spigot 插件。
 
 ### MelonAuth 将在什么时候验证我的账户？
 当新玩家加入服务器时，MelonAuth 将自动开始账户验证。
-关于玩家如何完成验证，请您阅读[验证手册](https://github.com/LanguaLab/MelonAuth/documents/manual_zh.md)。
+关于玩家如何完成验证，请您阅读[验证手册](https://github.com/LanguaLab/MelonAuth/blob/master/documents/manual_zh.md)。
 
 ### 我不想向你提供任何隐私信息。
 MelonAuth **不会**向您请求任何隐私信息。所有可能出现的隐私信息将在您与Mojang之间直接传输。这些信息将不会被任何第三方收集(包括您将要加入的服务器)。
 
 ### 别弄脏我的衣服了！
-请不要担心你的衣服。验证码打印的位置将在游戏中不可见。您原来的皮肤与打印过验证码的皮肤在游戏中看起来的效果将是一样的。所以，您可以随意地将验证码保持在身上(事实上你的身体看起来和原来没有什么不同)，**完成验证后，您将不需要进行进一步操作***（例如换回原来的皮肤）*。
+请不要担心你的衣服。验证码打印的位置将在游戏中不可见。您原来的皮肤与打印过验证码的皮肤在游戏中看起来的效果将是一样的。所以，您可以随意地将验证码保持在身上(事实上你的身体看起来和原来没有什么不同)，**完成验证后，您将不需要进行进一步操作** *（例如换回原来的皮肤）*。
 
 
 ## 现在获取 MelonAuth
 您可以选择下面两种方式的一种来获取 MelonAuth 插件。
 + 从 [Release](https://github.com/LanguaLab/MelonAuth/releases) 页面下载。
-+ 自己构建。（请参考 [构建](https://github.com/LanguaLab/MelonAuth/documents/README_zh.md)）
++ 自己构建。（请参考 [构建](https://github.com/LanguaLab/MelonAuth/blob/master/documents/README_zh.md#%E6%9E%84%E5%BB%BA)）
 
 ## 配置
-+ 请阅读 [configuration.md](https://github.com/LanguaLab/MelonAuth/documents/configuration.md)（未汉化）。
++ 请阅读 [configuration.md](https://github.com/LanguaLab/MelonAuth/blob/master/documents/configuration.md)（未汉化）。
 
 ## 开发者相关
 

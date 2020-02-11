@@ -1,10 +1,10 @@
 # MelonAuth
 
-#### A safer way to verify the ownership of a Minecraft account.
+![banner](https://auth.langua.moe/image/banner.png)
 
 MelonAuth is a spigot plugin which helps you to verify the legality of a Minecraft account. It can help you to prevent players who is using illegal accounts from your server.
 
-##### 如果你在寻找中文文档，请点击[这里](https://github.com/LanguaLab/MelonAuth/documents/README_zh.md)
+##### 如果你在寻找中文文档，请点击[这里](https://github.com/LanguaLab/MelonAuth/blob/master/documents/README_zh.md)。
 
 ## Why MelonAuth?
 
@@ -23,22 +23,22 @@ Simply speaking, **MelonAuth will verify the legality of the Minecraft account t
 
 ### When will MelonAuth verify my account?
 MelonAuth will start account verification automatically when a new player login server.
-To know how the players complete the verification, please read [verification manual](https://github.com/LanguaLab/MelonAuth/documents/manual.md).
+To know how the players complete the verification, please read [verification manual](https://github.com/LanguaLab/MelonAuth/blob/master/documents/manual.md).
 
 ### I Don't want to provide any private information to you.
 MelonAuth will **NOT** request any privacy information from you. All private information that may be required will be transmitted directly between you and Mojang. It will not be collected by any third-party(include the server you may want to join).
 
 ### Don't stain my shirt!
-Don't worry about your shirt. The place where the verification code painted is invisible in the game. The original skin and painted skin will look no different in the actual visual effects. So, you can just keep the verification code on your body(actually there are nothing different looks on your body), **no further action needed after the verification***(such as change back to the original skin)*.
+Don't worry about your shirt. The place where the verification code painted is invisible in the game. The original skin and painted skin will look no different in the actual visual effects. So, you can just keep the verification code on your body(actually there are nothing different looks on your body), **no further action needed after the verification** *(such as change back to the original skin)*.
 
 
 ## Get it now
 To get MelonAuth plugin, you can choose one of the following two methods:
 + Download from [Release](https://github.com/LanguaLab/MelonAuth/releases) Page.
-+ Build by yourself. (see [Build](https://github.com/LanguaLab/MelonAuth#Build))
++ Build by yourself. (see [Build](https://github.com/LanguaLab/MelonAuth#build))
 
 ## Configuration
-+ See [configuration.md](https://github.com/LanguaLab/MelonAuth/documents/configuration.md)
++ See [configuration.md](https://github.com/LanguaLab/MelonAuth/blob/master/documents/configuration.md)
 
 ## For developer
 
