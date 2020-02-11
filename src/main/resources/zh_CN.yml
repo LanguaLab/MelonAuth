@@ -1,4 +1,4 @@
-version: 1
+version: "1"
 prefix: "&8[&3MelonAuth&8] &7"
 player_only: "此指令只可由玩家使用。"
 muted: "在完成账户验证前，您暂时不能发言。"
