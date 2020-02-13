@@ -3,6 +3,7 @@ package moe.langua.lab.melonauth;
 import moe.langua.lab.melonauth.executor.Auth;
 import moe.langua.lab.melonauth.executor.Reload;
 import moe.langua.lab.melonauth.listeners.AuthTrigger;
+import moe.langua.lab.melonauth.utils.API;
 import moe.langua.lab.melonauth.utils.Verifier;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
@@ -25,6 +26,7 @@ import java.util.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class Init extends JavaPlugin {
+    private int renameDetection;
     private boolean isStrictMode;
     private boolean isFreeze;
     private boolean isMute;
@@ -45,28 +47,32 @@ public class Init extends JavaPlugin {
     public void onEnable() {
         if (!this.getDataFolder().exists()) {
             getLogger().info("First setup detected. Setting up your MelonAuth Config files.");
-            this.saveDefaultConfig();
             this.setup();
         }
 
         Bukkit.getScheduler().runTaskTimer(this, () -> {
             try {
-                getLogger().info(languageMap.get("prefix") + languageMap.get("checking_update"));
-                JSONObject result = apiGET(new URL("https://api.github.com/repos/LanguaLab/MelonAuth/releases/latest"));
+                getLogger().info(languageMap.get("checking_update"));
+                JSONObject result = API.getGithubLatestRelease();
+                assert result != null;
                 latestVersion = result.getString("tag_name");
                 if (!this.getDescription().getVersion().equalsIgnoreCase(latestVersion)) {
                     hasUpdate = true;
                     this.getLogger().info(languageMap.get("prefix") + this.applyPlaceholder(languageMap.get("update_notice"), latestVersion, "https://github.com/LanguaLab/MelonAuth/releases/" + latestVersion));
                 }
-            } catch (JSONException | IOException e) {
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
         }, 0, 20 * 60 * 60 * 12/*every 12 hours*/); //check update
-        isStrictMode = getConfig().getBoolean("StrictMode");
-        isFreeze = getConfig().getBoolean("Freeze");
-        isMute = getConfig().getBoolean("Mute");
+
+        try {
+            this.loadConfig();
+        } catch (IOException e) {
+            e.printStackTrace();
+            this.getPluginLoader().disablePlugin(this);
+        }
+
         Metrics metrics = new Metrics(this, 6472);
-        loadLanguage(this.getConfig().getString("Language")); //load language settings
         authMap = loadAuthMap(); //load saved auth data
         this.getCommand("auth").setExecutor(new Auth(this, verifiedList, authMap, verifierMap, languageMap));
         this.getCommand("reload").setExecutor(new Reload(this, languageMap));
@@ -81,18 +87,15 @@ public class Init extends JavaPlugin {
     }
 
     private void setup() {
+        writeResourceFile("config.yml");
         writeResourceFile("en_US.yml");
         writeResourceFile("zh_CN.yml");
-    }
-
-    private URL getResourceFileURL(String fileName) {
-        return this.getClassLoader().getResource(fileName);
     }
 
     private void writeResourceFile(String name) {
         File fileToWrite = new File(getDataFolder(), name);
         try {
-            InputStream inputStream = getInputStreamFromConnection(getResourceFileURL(name).openConnection());
+            InputStream inputStream = getResource(name);
             final OutputStream out = new FileOutputStream(fileToWrite);
             final byte[] buf = new byte[1024];
             int len;
@@ -104,11 +107,6 @@ public class Init extends JavaPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private InputStream getInputStreamFromConnection(URLConnection connection) throws IOException {
-        connection.setUseCaches(false);
-        return connection.getInputStream();
     }
 
     private HashMap<UUID, Boolean> loadAuthMap() {
@@ -154,6 +152,20 @@ public class Init extends JavaPlugin {
         }
     }
 
+    private void patchYaml(File file,String originalFileName) throws IOException {
+        boolean edited = false;
+        FileConfiguration original = YamlConfiguration.loadConfiguration(new InputStreamReader(getResource(originalFileName)));
+        FileConfiguration costumed = YamlConfiguration.loadConfiguration(file);
+        Set<String> keys = costumed.getKeys(true);
+        for (String x : original.getKeys(true)) {
+            if (!keys.contains(x)) {
+                costumed.set(x, original.get(x));
+                edited = true;
+            }
+        }
+        if (edited) costumed.save(file);
+    }
+
     private void loadLanguage(String lang) {
         FileConfiguration config = YamlConfiguration.loadConfiguration(new File(getDataFolder(), lang + ".yml"));
         languageMap.clear();
@@ -189,33 +201,21 @@ public class Init extends JavaPlugin {
         return latestVersion;
     }
 
+    private void loadConfig() throws IOException {
+        patchYaml(new File(getDataFolder().getAbsolutePath() + "/config.yml"),"config.yml");
+        patchYaml(new File(getDataFolder().getAbsolutePath() + "/"+this.getConfig().getString("Language")+".yml"),"en_US.yml");
+        this.reload();
+    }
+
     public void reload() {
         this.reloadConfig();
         isStrictMode = getConfig().getBoolean("StrictMode");
         isFreeze = getConfig().getBoolean("Freeze");
         isMute = getConfig().getBoolean("Mute");
         loadLanguage(this.getConfig().getString("Language"));
-        autoSaveTask.cancel();
+        if (autoSaveTask != null) autoSaveTask.cancel();
         int autoSaveTimeInSecond = getConfig().getInt("AutoSave");
         autoSaveTask = Bukkit.getScheduler().runTaskTimer(this, this::saveAuthMap, autoSaveTimeInSecond * 20, autoSaveTimeInSecond * 20);
-    }
-
-    public static JSONObject apiGET(URL reqURL) throws JSONException, IOException {
-        HttpsURLConnection connection = (HttpsURLConnection) reqURL.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("Content-type", "application/json");
-        connection.setInstanceFollowRedirects(false);
-        InputStream inputStream = connection.getInputStream();
-        InputStreamReader inputStreamReader = new InputStreamReader(inputStream, UTF_8);
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        String tmpString;
-        StringBuilder stringBuilder = new StringBuilder();
-        while (true) {
-            tmpString = bufferedReader.readLine();
-            if (tmpString == null) break;
-            stringBuilder.append(tmpString);
-        }
-        return new JSONObject(stringBuilder.toString());
     }
 
     public ArrayList<Player> getWaitList() {

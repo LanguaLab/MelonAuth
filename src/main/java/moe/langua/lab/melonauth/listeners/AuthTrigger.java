@@ -57,8 +57,10 @@ public class AuthTrigger implements Listener {
         event.setJoinMessage("");
         if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) event.getPlayer().setGameMode(GameMode.SPECTATOR);
         instance.getWaitList().add(event.getPlayer());
-        event.getPlayer().sendMessage(languageMap.get("join"));
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tellraw " + event.getPlayer().getName() + " " + instance.applyPlaceholder(languageMap.get("document.tellraw"), languageMap.get("document.notice"), languageMap.get("document.click_word"), languageMap.get("document.url"), languageMap.get("document.hover_notice")));
+        Bukkit.getScheduler().runTaskLater(instance,()->{
+            event.getPlayer().sendMessage(languageMap.get("join"));
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tellraw " + event.getPlayer().getName() + " " + instance.applyPlaceholder(languageMap.get("document.tellraw"), languageMap.get("document.notice"), languageMap.get("document.click_word"), languageMap.get("document.url"), languageMap.get("document.hover_notice")));
+        },2 * 20);
         new GetSkinImage(instance, languageMap, event.getPlayer()) {
             @Override
             public void run() {

@@ -1,4 +1,3 @@
-version: "1"
 prefix: "&8[&3MelonAuth&8] &7"
 player_only: "Sorry, but you cannot use this command as console."
 obtaining_information: "We are obtaining your account information now... "

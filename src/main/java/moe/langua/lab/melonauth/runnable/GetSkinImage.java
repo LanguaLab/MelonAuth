@@ -1,6 +1,7 @@
 package moe.langua.lab.melonauth.runnable;
 
 import moe.langua.lab.melonauth.Init;
+import moe.langua.lab.melonauth.utils.API;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.json.JSONException;
@@ -29,12 +30,18 @@ public class GetSkinImage extends BukkitRunnable {
     public void run() {
 
         JSONObject profile = null;
-        try {
-            profile = getProfile();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        while (true){
+            if(!player.isOnline()) break;
+            profile = API.getPlayerProfile(player.getUniqueId());
+            if(profile!=null) break;
+            player.sendMessage(languageMap.get("prefix") + languageMap.get("connection_error"));
+            try {
+                Thread.sleep(20 * 1000/* try again in 20 seconds */);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        if (profile == null) return;
+        if(profile==null) return;
 
         JSONObject value;
         try {
@@ -50,39 +57,19 @@ public class GetSkinImage extends BukkitRunnable {
             textures = value.getJSONObject("textures");
             if (textures.has("SKIN")) {
                 URL skinFileURL = new URL(textures.getJSONObject("SKIN").getString("url").replace("http://", "https://"));
-                skinImage = readImage(skinFileURL);
+                while (true){
+                    if(!player.isOnline()) return;
+                    skinImage = API.getSKIN(skinFileURL);
+                    if(skinImage!=null) return;
+                    player.sendMessage(languageMap.get("prefix") + languageMap.get("connection_error"));
+                    Thread.sleep(20 * 1000);
+                }
             } else {
                 skinImage = ImageIO.read(instance.getResource(((player.getUniqueId().hashCode() & 1) != 0 ? "alex" : "steve") + ".png"));
             }
         } catch (IOException | JSONException | InterruptedException e) {
             e.printStackTrace();
-            player.sendMessage(languageMap.get("prefix") + languageMap.get("connection_error"));
             this.runTaskAsynchronously(instance);
         }
     }
-
-    private JSONObject getProfile() throws InterruptedException {
-        if (!player.isOnline()) return null;
-        try {
-            return Init.apiGET(new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + player.getUniqueId().toString().replace("-", "")));
-        } catch (IOException | JSONException e) {
-            e.printStackTrace();
-            player.sendMessage(languageMap.get("prefix") + languageMap.get("connection_error"));
-            Thread.sleep(20 * 1000/* try again in 20 seconds */);
-            return getProfile();
-        }
-    }
-
-    private BufferedImage readImage(URL skinFileURL) throws InterruptedException {
-        if (!player.isOnline()) return null;
-        try {
-            return ImageIO.read(skinFileURL);
-        } catch (IOException e) {
-            e.printStackTrace();
-            player.sendMessage(languageMap.get("prefix") + languageMap.get("connection_error"));
-            Thread.sleep(20 * 1000/* try again in 20 seconds */);
-            return readImage(skinFileURL);
-        }
-    }
-
 }
