@@ -1,16 +1,15 @@
 prefix: "&8[&3MelonAuth&8] &7"
 player_only: "此指令只可由玩家使用。"
-muted: "在完成账户验证前，您暂时不能发言。"
-no_need_to_auth: "您目前没有需要处理的验证请求。"
+no_need_to_verify: "您目前没有需要处理的验证请求。"
+need_to_verify: "&c你需要先验证你的账户。"
 start_verification: "MelonAuth正在验证您的帐户，请稍作等待。"
 success: "恭喜，您的帐户已经通过验证。"
 fail: "验证码核验失败。请确保您上传了正确的皮肤，请在一分钟后再试一次。"
-cool_down: "您还需要等待{0}秒才能提交验证请求。在这之前，请确保您已经阅读了验证指南。"
+cooling_down: "您还需要等待{0}秒才能提交验证请求。在这之前，请确保您已经阅读了验证指南。"
 permission_denied: "&c抱歉，您无法使用这条指令。"
+task_running: "您有一个任务正在运行中，请稍作等待。"
 reloaded: "插件已成功重载。"
-checking_update: "正在检查更新……"
 update_notice: "&c新版本&a{0}&c现已可用！ 升级最新版本以体验新功能！ 点击链接立刻下载！ &9&n{1}"
-
 unexpected_error: "&c发生了意料之外的错误。请您联系服务器维护人员，并向他们提供此时间戳[{0}]。请您稍作等待，我们会再试一次。"
 connection_error: "&c目前无法收集所需的信息。请您稍作等待，我们会再试一次。"
 
@@ -19,14 +18,12 @@ join: "
 
 document:
   url: "https://github.com/LanguaLab/MelonAuth/blob/master/documents/manual_zh.md"
-  tellraw: "[{\"text\":\"{0}\"},{\"text\":\"{1}\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"{2}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":[\"\",{\"text\":\"{3}\",\"color\":\"dark_purple\"}]}}]"
   notice: "&e阅读验证指南: "
   click_word: "&b&l请点击我。"
-  hover_notice: "§5§o点击以阅读验证指南"
+  hover_notice: "&5&o点击以阅读验证指南"
 
 skin:
   url: "https://auth.langua.moe/?file={0}&&skin={1}"
-  tellraw: "[{\"text\":\"{0}\"},{\"text\":\"{1}\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"{2}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":[\"\",{\"text\":\"{3}\",\"color\":\"dark_purple\"}]}}]"
   notice: "&e下载您的验证皮肤: "
   click_word: "&b&l请点击我。"
-  hover_notice: "§5§o点击以下载您的皮肤"
+  hover_notice: "&5&o点击以下载您的皮肤"

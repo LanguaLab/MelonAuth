@@ -4,26 +4,29 @@
 
 MelonAuth is a spigot plugin which helps you to verify the legality of a Minecraft account. It can help you to prevent players who is using illegal accounts from your server.
 
-##### 如果你在寻找中文文档，请点击[这里](https://github.com/LanguaLab/MelonAuth/blob/master/documents/README_zh.md)。
+##### 如果你在寻找中文文档，请点击[这里](https://github.com/LanguaLab/MelonAuth/wiki/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2)。
 
 ## Why MelonAuth?
 
 + Full automation.
 + No need to ask for email or password.
-+ Simple to use.
-+ Easy to configure.
++ Easy to configure & use.
 
 ## How to?
-When a new players joins in the server, MelonAuth will generate a 192 bit long random verification code and paint it on the top-left corner of the player's skin image.  
+Different with other account verification plugins, MelonAuth will NOT ask for the player for their email or passwords.  
+When a new players joins in the server, MelonAuth will generate a 192 bit long random verification code, convert it to 8x8 color blocks and paint it on the top-left corner of the player's skin image.  
 What the player needs to do is to download the painted skin image, login minecraft.net(or Minecraft Launcher) and upload it as their new skin.  
-When the player uploads their new skin, minecraft.net will choose whether or not to let the player answer secret questions(depend on the account activities of this account). Generally, the user of illegal account will fall in difficulties at this step, because they don't know the answer of secret questions of their account, which were set by the original owner of the account.  
+When the player uploads their new skin, minecraft.net will choose whether or not to ask the player for additional verification information(depend on the account activities of this account). Generally, the user of illegal account will fall in difficulties at this step, because can't complete the additional verification challenge, which were set by the original owner of the account.
 Simply speaking, **MelonAuth will verify the legality of the Minecraft account through the original security verification of the Mojang account system.**  
+
+## Q & A (For Server Maintainers)
+### 
 
 ## Q & A (For Players)
 
 ### When will MelonAuth verify my account?
 MelonAuth will start account verification automatically when a new player login server.
-To know how the players complete the verification, please read [verification manual](https://github.com/LanguaLab/MelonAuth/blob/master/documents/manual.md).
+To know how the players complete the verification, please read [Verification Manual](https://github.com/LanguaLab/MelonAuth/wiki/Verification-Manual).
 
 ### I Don't want to provide any private information to you.
 MelonAuth will **NOT** request any privacy information from you. All private information that may be required will be transmitted directly between you and Mojang. It will not be collected by any third-party(include the server you may want to join).
@@ -38,7 +41,7 @@ To get MelonAuth plugin, you can choose one of the following two methods:
 + Build by yourself. (see [Build](https://github.com/LanguaLab/MelonAuth#build))
 
 ## Configuration
-+ See [configuration.md](https://github.com/LanguaLab/MelonAuth/blob/master/documents/configuration.md)
++ See [Configuration Manual](https://github.com/LanguaLab/MelonAuth/wiki/Configuration-Manual)
 
 ## For developer
 
@@ -61,7 +64,7 @@ You can also download the repository without git. ([Download zip](https://github
 $ cd $PATH_TO_REPOSITORY
 $ maven clean install
 ```
-The built plugin will be placed in `$PATH_TO_REPOSITORY/target/melonauth-{$version}.jar`.
+The built plugin will be placed in `$PATH_TO_REPOSITORY/target/melonauth-${version}.jar`.
 
 ## Issue Tracker
 We hope you can get in touch with us and let us know your confusion If you fall into any problems in use.  

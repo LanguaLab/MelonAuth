@@ -1,0 +1,5 @@
+name: MelonAuth
+version: ${project.version}
+main: moe.langua.lab.auth.bungeecord.BungeeStartup
+author: langua
+website: https://github.com/LanguaLab/MelonAuth

@@ -1,6 +1,6 @@
 name: MelonAuth
 version: ${project.version}
-main: moe.langua.lab.melonauth.Init
+main: moe.langua.lab.auth.spigot.SpigotStartup
 api-version: "1.13"
 author: langua
 website: https://github.com/LanguaLab/MelonAuth

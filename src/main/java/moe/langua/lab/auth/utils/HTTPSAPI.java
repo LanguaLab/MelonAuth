@@ -1,8 +1,7 @@
-package moe.langua.lab.melonauth.utils;
+package moe.langua.lab.auth.utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import sun.misc.FileURLMapper;
 
 import javax.imageio.ImageIO;
 import javax.net.ssl.HttpsURLConnection;
@@ -16,9 +15,9 @@ import java.util.UUID;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-public class API {
+public class HTTPSAPI {
 
-    public static BufferedImage getSKIN(URL reqURL) {
+    public static BufferedImage getImage(URL reqURL) {
         try {
             return ImageIO.read(reqURL);
         } catch (IOException e) {
@@ -30,7 +29,7 @@ public class API {
     public static JSONObject getGithubLatestRelease() {
         try {
             URL reqURL = new URL("https://api.github.com/repos/LanguaLab/MelonAuth/releases/latest");
-            return apiGet(reqURL);
+            return new JSONObject(apiGet(reqURL));
         } catch (IOException | JSONException e) {
             e.printStackTrace();
             return null;
@@ -40,14 +39,14 @@ public class API {
     public static JSONObject getPlayerProfile(UUID uniqueID) {
         try {
             URL reqURL = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uniqueID.toString().replace("-", ""));
-            return apiGet(reqURL);
+            return new JSONObject(apiGet(reqURL));
         } catch (IOException | JSONException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private static JSONObject apiGet(URL reqURL) throws JSONException, IOException {
+    private static String apiGet(URL reqURL) throws JSONException, IOException {
         HttpsURLConnection connection = (HttpsURLConnection) reqURL.openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Content-type", "application/json");
@@ -62,6 +61,6 @@ public class API {
             if (tmpString == null) break;
             stringBuilder.append(tmpString);
         }
-        return new JSONObject(stringBuilder.toString());
+        return stringBuilder.toString();
     }
 }
